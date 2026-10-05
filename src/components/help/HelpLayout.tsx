@@ -1,5 +1,6 @@
 import type { ReactElement, ReactNode } from "react";
-import { HelpNavigation, type HelpTopic } from "./HelpNavigation";
+import { HelpNavigation } from "./HelpNavigation";
+import type { HelpTopic } from "./topics";
 
 type HelpLayoutProps = { readonly currentTopic: HelpTopic; readonly children: ReactNode };
 

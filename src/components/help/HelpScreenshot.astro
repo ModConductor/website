@@ -1,0 +1,19 @@
+---
+import { getImage } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import { ScreenshotFigure } from "../showcase/ScreenshotFigure";
+import { sitePath } from "../site/paths";
+
+type Props = { readonly image: ImageMetadata; readonly alt: string; readonly caption: string };
+const { image, alt, caption } = Astro.props;
+const rendered = await getImage({ src: image, widths: [400, 800, 1200, 1600], format: "webp", quality: "high" });
+const source = {
+  src: rendered.src,
+  srcSet: rendered.srcSet.attribute,
+  sizes: "(min-width: 1536px) calc(83.333vw - 350px), (min-width: 1280px) calc(100vw - 350px), (min-width: 1024px) calc(100vw - 318px), (min-width: 640px) calc(100vw - 66px), calc(100vw - 34px)",
+  fullSizePath: sitePath(`_astro/${image.src.slice(image.src.lastIndexOf("/") + 1)}`),
+  width: image.width,
+  height: image.height,
+};
+---
+<div class="mt-5"><ScreenshotFigure image={source} alt={alt} caption={caption} loading="lazy" /></div>

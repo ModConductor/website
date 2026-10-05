@@ -1,0 +1,20 @@
+---
+import type { MarkdownHeading } from "astro";
+import SiteDocument from "./SiteDocument.astro";
+import { HelpLayout } from "../components/help/HelpLayout";
+import { HelpArticle } from "../components/help/HelpArticle";
+import HelpScreenshot from "../components/help/HelpScreenshot.astro";
+import { helpIllustrations } from "../components/help/illustrations";
+import { MarkdownContent } from "../components/help/MarkdownContent";
+import { ArticleContents } from "../components/help/ArticleContents";
+import type { HelpArticleSlug } from "../components/help/topics";
+
+type Props = { readonly title: string; readonly description: string; readonly currentTopic: HelpArticleSlug; readonly headings: ReadonlyArray<MarkdownHeading> };
+const { title, description, currentTopic, headings } = Astro.props;
+const illustration = helpIllustrations.find(({ slug }) => slug === currentTopic);
+---
+<SiteDocument title={title} description={description} currentSection="help"><HelpLayout currentTopic={currentTopic}><HelpArticle title={title}><ArticleContents headings={headings} />{illustration === undefined ? null : <HelpScreenshot {...illustration} />}<MarkdownContent><slot /></MarkdownContent></HelpArticle></HelpLayout></SiteDocument>
+<script>
+  import { enhanceCodeCopy } from "../scripts/code-copy";
+  enhanceCodeCopy();
+</script>

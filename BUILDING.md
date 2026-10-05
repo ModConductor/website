@@ -19,11 +19,13 @@ and pnpm 12.9.1.
 | `pnpm build` | Emit static HTML and assets into `dist/`. |
 | `pnpm preview` | Serve the built output locally at `http://localhost:4321/`. |
 
-The current routes are `/`, `/download/`, `/help/`, `/help/install/`, and the
-static `404.html`. They use shared React components that render at build time.
+The current routes are `/`, `/download/`, `/help/`, and the ten help topics
+listed in `src/components/help/topics.ts`, plus the static `404.html`.
+They use shared React components that render at build time.
 Reading, navigation, and automatic light/dark themes do not need JavaScript.
-The landing, downloads, and installation content are minimal current consumers.
-Complete content and public-ready application screenshots belong to later tickets.
+Help prose and fenced code use Astro's build-time Markdown renderer. A native
+clipboard enhancement adds copy buttons to fenced code without a browser React
+runtime. Reading and selection still work without JavaScript.
 
 For a project base path, use Astro's supported `base` setting or build with:
 

@@ -1,12 +1,12 @@
 import type { ReactElement } from "react";
 import { Icon } from "../site/Icon";
 import { sitePath } from "../site/paths";
+import { helpTopics, type HelpTopic } from "./topics";
 
-export type HelpTopic = "index" | "installation";
 type HelpNavigationProps = { readonly currentTopic: HelpTopic };
 const topics = [
   { topic: "index", path: "help/", label: "All help topics", icon: "book" },
-  { topic: "installation", path: "help/install/", label: "Installation", icon: "download" },
+  ...helpTopics.map(({ slug, title, icon }) => ({ topic: slug, path: `help/${slug}/`, label: title, icon } as const)),
 ] as const;
 
 type TopicLinkProps = HelpNavigationProps & (typeof topics)[number];

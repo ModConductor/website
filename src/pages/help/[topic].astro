@@ -1,0 +1,22 @@
+---
+import type { MarkdownInstance } from "astro";
+import HelpDocument from "../../layouts/HelpDocument.astro";
+import { helpTopics, type HelpArticleSlug } from "../../components/help/topics";
+
+type HelpPagePath = {
+  readonly params: { readonly topic: HelpArticleSlug };
+  readonly props: { readonly topic: (typeof helpTopics)[number]; readonly article: MarkdownInstance<object> };
+};
+
+export function getStaticPaths(): HelpPagePath[] {
+  const articles = import.meta.glob<MarkdownInstance<object>>("../../content/help/*.md", { eager: true });
+  return helpTopics.map((topic) => {
+    const article = articles[`../../content/help/${topic.slug}.md`];
+    if (article === undefined) throw new Error(`Missing help article: ${topic.slug}`);
+    return { params: { topic: topic.slug }, props: { topic, article } };
+  });
+}
+const { topic, article } = Astro.props;
+const { Content, getHeadings } = article;
+---
+<HelpDocument title={topic.title} description={topic.description} currentTopic={topic.slug} headings={getHeadings()}><Content /></HelpDocument>
