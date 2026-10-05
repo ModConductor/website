@@ -1,3 +1,5 @@
+publicHoistPattern:
+  - sharp
 allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
