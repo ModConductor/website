@@ -44,4 +44,10 @@ production server.
 Keep route wrappers in `src/pages/`, React components in `src/components/`,
 Markdown help prose in `src/content/help/`, document wrappers in `src/layouts/`,
 and the Tailwind import in `src/styles/global.css`. Use Tailwind utilities for
-styles. No public deployment or license is selected yet.
+styles.
+
+## License
+
+The website source code and help content are licensed under the GNU General
+Public License, version 3 or (at your option) any later version
+(`GPL-3.0-or-later`). See [LICENSE](LICENSE) for the full license text.
