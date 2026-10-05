@@ -5,9 +5,11 @@ export function enhanceCodeCopy(): void {
     for (const pre of content.querySelectorAll<HTMLElement>("pre")) {
       const code = pre.querySelector<HTMLElement>("code");
       if (code === null) continue;
-      const block = document.createElement("div");
+      const block = template.content.firstElementChild?.cloneNode(true);
+      if (!(block instanceof HTMLElement)) continue;
+      pre.dataset.copyReady = "";
       pre.before(block);
-      block.append(template.content.cloneNode(true), pre);
+      block.append(pre);
       const button = block.querySelector<HTMLButtonElement>("[data-copy-code]");
       const feedback = block.querySelector<HTMLElement>("[data-copy-feedback]");
       if (button === null || feedback === null) continue;
