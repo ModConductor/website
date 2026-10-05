@@ -1,0 +1,10 @@
+---
+import SiteDocument from "../../layouts/SiteDocument.astro";
+import { HelpLayout } from "../../components/help/HelpLayout";
+import { HelpArticle } from "../../components/help/HelpArticle";
+import { ReadingSection } from "../../components/help/ReadingSection";
+import { TextLink } from "../../components/site/Links";
+import { sitePath } from "../../components/site/paths";
+import { Content } from "../../content/help/installation.md";
+---
+<SiteDocument title="Installation" description="Mod Conductor installation notes and release information." currentSection="help"><HelpLayout currentTopic="installation"><HelpArticle title="Installation"><ReadingSection id="release-files" title="Release files"><Content /><p class="mt-5"><TextLink href={sitePath("download/")}>Downloads →</TextLink></p></ReadingSection></HelpArticle></HelpLayout></SiteDocument>

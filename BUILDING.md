@@ -19,14 +19,27 @@ and pnpm 12.9.1.
 | `pnpm build` | Emit static HTML and assets into `dist/`. |
 | `pnpm preview` | Serve the built output locally at `http://localhost:4321/`. |
 
-The only current route, `/`, is a build smoke page, not the production design.
-Its React component renders at build time, without a client hydration directive.
-The page can be read with JavaScript disabled.
+The current routes are `/`, `/download/`, `/help/`, `/help/install/`, and the
+static `404.html`. They use shared React components that render at build time.
+Reading, navigation, and automatic light/dark themes do not need JavaScript.
+The landing, downloads, and installation content are minimal current consumers.
+Complete content and public-ready application screenshots belong to later tickets.
+
+For a project base path, use Astro's supported `base` setting or build with:
+
+```sh
+pnpm build --base /project/
+```
+
+Serve `dist/` at that prefix. Shared links and public assets use Astro's
+`import.meta.env.BASE_URL`. Unknown routes need the static host to serve
+`404.html` with a 404 status. The website does not supply a public server.
 
 Publish only `dist/` to a static host. The public site does not need Node,
 an application engine, or a database. `pnpm preview` is a local check, not a
 production server.
 
 Keep route wrappers in `src/pages/`, React components in `src/components/`,
+Markdown help prose in `src/content/help/`, document wrappers in `src/layouts/`,
 and the Tailwind import in `src/styles/global.css`. Use Tailwind utilities for
 styles. No public deployment or license is selected yet.

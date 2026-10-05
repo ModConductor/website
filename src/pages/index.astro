@@ -1,18 +1,5 @@
 ---
-import { BuildSmoke } from "../components/BuildSmoke";
-import "../styles/global.css";
-
-const title = "Mod Conductor build smoke page";
+import SiteDocument from "../layouts/SiteDocument.astro";
+import { LandingIntro } from "../components/LandingIntro";
 ---
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <BuildSmoke title={title} />
-  </body>
-</html>
+<SiteDocument title="Native mod management" description="Mod Conductor: native mod management for Linux and Windows." currentSection="home"><LandingIntro /></SiteDocument>

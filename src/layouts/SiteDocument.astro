@@ -1,0 +1,18 @@
+---
+import { SiteChrome } from "../components/site/SiteChrome";
+import type { SiteSection } from "../components/site/SiteNavigation";
+import "../styles/global.css";
+
+type Props = { readonly title: string; readonly description: string; readonly currentSection: SiteSection };
+const { title, description, currentSection } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="scheme-light dark:scheme-dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title} — Mod Conductor</title>
+  </head>
+  <body><SiteChrome currentSection={currentSection}><slot /></SiteChrome></body>
+</html>
