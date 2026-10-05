@@ -27,13 +27,16 @@ Help prose and fenced code use Astro's build-time Markdown renderer. A native
 clipboard enhancement adds copy buttons to fenced code without a browser React
 runtime. Reading and selection still work without JavaScript.
 
-For a project base path, use Astro's supported `base` setting or build with:
+The published project path is `/website/`. Build it with Astro's supported CLI:
 
 ```sh
-pnpm build --base /project/
+pnpm exec astro build --base /website/
 ```
 
-Serve `dist/` at that prefix. Shared links and public assets use Astro's
+For a root-path local build, use `pnpm build` without the base option.
+
+Serve a base-path build at that prefix and a root-path build at `/`.
+Shared links and public assets use Astro's
 `import.meta.env.BASE_URL`. Unknown routes need the static host to serve
 `404.html` with a 404 status. The website does not supply a public server.
 
@@ -45,6 +48,22 @@ Keep route wrappers in `src/pages/`, React components in `src/components/`,
 Markdown help prose in `src/content/help/`, document wrappers in `src/layouts/`,
 and the Tailwind import in `src/styles/global.css`. Use Tailwind utilities for
 styles.
+
+## GitHub Pages and PR checks
+
+The deployment target is the public `ModConductor/website` repository and
+<https://modconductor.github.io/website/>, with no custom domain.
+
+Set the repository Pages source to **GitHub Actions** before deployment.
+`.github/workflows/pages.yml` builds on pushes to `main`, uploads only `dist/`,
+and deploys that artifact in a separate job through the `github-pages`
+environment. It does not publish application packages or GitHub releases.
+
+`.github/workflows/review.yml` runs lint and type checks in separate jobs for
+pull requests targeting `main`. Each job installs with the frozen lockfile.
+Ordinary branch pushes do not run these review checks; main pushes run the
+static deployment workflow. Both workflows use Node 24.21.0, pnpm 12.9.1,
+and current major action tags. No browser or performance harness runs in CI.
 
 ## License
 

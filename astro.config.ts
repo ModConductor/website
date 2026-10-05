@@ -3,6 +3,7 @@ import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
+  site: "https://modconductor.github.io",
   output: "static",
   trailingSlash: "always",
   markdown: { syntaxHighlight: false },
