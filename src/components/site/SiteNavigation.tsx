@@ -14,7 +14,7 @@ const linkStyle = "flex min-h-11 items-center gap-2 rounded-md focus-visible:out
 
 export function SiteNavigation({ currentSection, placement }: NavigationProps): ReactElement {
   if (placement === "footer") {
-    return <nav aria-label="Footer" className="flex flex-wrap gap-5 text-sm font-medium"><a href={sitePath("help/install/")} className={linkStyle}><Icon name="file" />Installation</a><a href="https://github.com/ModConductor/ModConductor" className={linkStyle}><Icon name="external" />Source</a></nav>;
+    return <nav aria-label="Footer" className="flex flex-wrap gap-5 text-sm font-medium"><a href={sitePath("help/install/")} className={linkStyle}><Icon name="file" />Installation</a><a href="https://github.com/ModConductor/ModConductor" aria-label="Source on GitHub" title="Source on GitHub" className={`${linkStyle} min-w-11 justify-center`}><Icon name="github" /></a></nav>;
   }
   return (
     <nav aria-label="Main" className="col-span-2 row-start-2 flex flex-wrap gap-1 text-sm font-semibold sm:order-none">
