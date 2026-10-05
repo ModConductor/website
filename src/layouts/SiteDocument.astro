@@ -1,6 +1,7 @@
 ---
 import { SiteChrome } from "../components/site/SiteChrome";
 import type { SiteSection } from "../components/site/SiteNavigation";
+import { themeStorageKey } from "../scripts/theme-preference";
 import "../styles/global.css";
 
 type Props = { readonly title: string; readonly description: string; readonly currentSection: SiteSection };
@@ -12,7 +13,18 @@ const { title, description, currentSection } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <script is:inline define:vars={{ themeStorageKey }}>
+      const storedTheme = localStorage.getItem(themeStorageKey);
+      if (storedTheme === "light" || storedTheme === "dark") {
+        document.documentElement.dataset.theme = storedTheme;
+      }
+    </script>
     <title>{title} — Mod Conductor</title>
   </head>
   <body><SiteChrome currentSection={currentSection}><slot /></SiteChrome></body>
 </html>
+
+<script>
+  import { enhanceThemeControl } from "../scripts/theme-control";
+  enhanceThemeControl();
+</script>

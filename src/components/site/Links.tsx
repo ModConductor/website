@@ -1,14 +1,16 @@
 import type { ReactElement, ReactNode } from "react";
-type LinkProps = { readonly href: string; readonly children: ReactNode };
+import { Icon, type IconName } from "./Icon";
 
-export function ActionLink({ href, children }: LinkProps): ReactElement {
-  return <a href={href} className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-violet-400/40 bg-linear-to-br from-violet-600 to-indigo-600 px-6 py-3 font-semibold text-white shadow-lg shadow-violet-500/20 ring-1 ring-white/20 ring-inset hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 dark:border-violet-200/40 dark:from-violet-300 dark:to-indigo-300 dark:text-zinc-950 dark:shadow-violet-500/10 dark:focus-visible:outline-violet-300">{children}</a>;
+type LinkProps = { readonly href: string; readonly children: ReactNode; readonly icon?: IconName };
+
+export function ActionLink({ href, children, icon }: LinkProps): ReactElement {
+  return <a href={href} className="motion-safe:transition-colors motion-safe:duration-150 inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-zinc-900 bg-zinc-900 px-4 py-2 text-sm font-semibold text-white hover:bg-zinc-700 focus-visible:bg-zinc-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-950 dark:hover:bg-white dark:focus-visible:bg-white dark:focus-visible:outline-violet-300">{icon === undefined ? null : <Icon name={icon} />}{children}</a>;
 }
 
-export function SecondaryLink({ href, children }: LinkProps): ReactElement {
-  return <a href={href} className="inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-violet-200 bg-white/80 px-6 py-3 font-semibold text-violet-900 shadow-sm hover:border-violet-400 hover:bg-violet-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 dark:border-violet-300/30 dark:bg-zinc-900/80 dark:text-violet-200 dark:hover:bg-violet-950/40 dark:focus-visible:outline-violet-300">{children}</a>;
+export function SecondaryLink({ href, children, icon }: LinkProps): ReactElement {
+  return <a href={href} className="motion-safe:transition-colors motion-safe:duration-150 inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-zinc-200 px-4 py-2 text-sm font-medium hover:bg-zinc-50 focus-visible:bg-zinc-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 dark:border-zinc-800 dark:hover:bg-zinc-900 dark:focus-visible:bg-zinc-900 dark:focus-visible:outline-violet-300">{icon === undefined ? null : <Icon name={icon} />}{children}</a>;
 }
 
-export function TextLink({ href, children }: LinkProps): ReactElement {
-  return <a href={href} className="rounded-sm font-semibold text-violet-800 underline decoration-violet-300/70 underline-offset-4 hover:decoration-violet-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 dark:text-violet-200 dark:decoration-violet-400/40 dark:hover:decoration-violet-200 dark:focus-visible:outline-violet-300">{children}</a>;
+export function TextLink({ href, children, icon }: LinkProps): ReactElement {
+  return <a href={href} className="motion-safe:transition-colors motion-safe:duration-150 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-medium text-zinc-700 underline decoration-zinc-300 underline-offset-4 hover:text-zinc-950 hover:decoration-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 dark:text-zinc-300 dark:decoration-zinc-700 dark:hover:text-white dark:hover:decoration-zinc-300 dark:focus-visible:outline-violet-300">{icon === undefined ? null : <Icon name={icon} />}{children}</a>;
 }

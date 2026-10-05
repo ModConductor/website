@@ -5,9 +5,9 @@ type HelpLayoutProps = { readonly currentTopic: HelpTopic; readonly children: Re
 
 export function HelpLayout({ currentTopic, children }: HelpLayoutProps): ReactElement {
   return (
-    <div className="mx-auto grid max-w-7xl items-start gap-6 px-6 pt-8 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:pt-12">
-      <div className="lg:col-span-3"><HelpNavigation currentTopic={currentTopic} /></div>
-      <div className="min-w-0 lg:col-span-9">{children}</div>
+    <div className="flex flex-col items-start gap-7 px-4 pt-7 sm:px-8 lg:flex-row">
+      <div className="w-full shrink-0 lg:sticky lg:top-24 lg:w-56 xl:w-64"><HelpNavigation currentTopic={currentTopic} /></div>
+      <div className="w-full min-w-0 flex-1">{children}</div>
     </div>
   );
 }

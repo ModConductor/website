@@ -1,13 +1,19 @@
 ---
 import { getImage } from "astro:assets";
 import SiteDocument from "../layouts/SiteDocument.astro";
+import { sitePath } from "../components/site/paths";
 import { Landing } from "../components/showcase/Landing";
 import mods from "../assets/screenshots/mods-load-order.png";
 import profiles from "../assets/screenshots/profiles.png";
 
 const modsImage = await getImage({ src: mods, widths: [400, 800, 1200, 1600], format: "webp", quality: "high" });
 const profilesImage = await getImage({ src: profiles, widths: [400, 800, 1200, 1600], format: "webp", quality: "high" });
-const modsSource = { src: modsImage.src, srcSet: modsImage.srcSet.attribute, sizes: "(min-width: 1216px) 1080px, (min-width: 640px) calc(100vw - 136px), calc(100vw - 88px)", fullSizePath: mods.src, width: mods.width, height: mods.height };
-const profilesSource = { src: profilesImage.src, srcSet: profilesImage.srcSet.attribute, sizes: "(min-width: 1344px) 686px, (min-width: 1024px) calc(60vw - 121px), (min-width: 640px) calc(100vw - 160px), calc(100vw - 112px)", fullSizePath: profiles.src, width: profiles.width, height: profiles.height };
+const modsSource = { src: modsImage.src, srcSet: modsImage.srcSet.attribute, sizes: "(min-width: 1536px) calc(83.333vw - 66px), (min-width: 640px) calc(100vw - 66px), calc(100vw - 34px)", fullSizePath: sitePath(`_astro/${mods.src.slice(mods.src.lastIndexOf("/") + 1)}`), width: mods.width, height: mods.height };
+const profilesSource = { src: profilesImage.src, srcSet: profilesImage.srcSet.attribute, sizes: "(min-width: 1536px) calc(55.556vw - 55px), (min-width: 1024px) calc(66.667vw - 55px), (min-width: 640px) calc(100vw - 66px), calc(100vw - 34px)", fullSizePath: sitePath(`_astro/${profiles.src.slice(profiles.src.lastIndexOf("/") + 1)}`), width: profiles.width, height: profiles.height };
 ---
 <SiteDocument title="Native mod management" description="Mod Conductor: native mod management for Linux and Windows." currentSection="home"><Landing mods={modsSource} profiles={profilesSource} /></SiteDocument>
+
+<script>
+  import { enhanceLandingMotion } from "../scripts/landing-motion";
+  enhanceLandingMotion();
+</script>
