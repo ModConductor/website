@@ -10,7 +10,7 @@ export const helpTopics = [
   { slug: "tools", title: "Tools", description: "Run executables with Native, Wine, or Proton.", icon: "file" },
   { slug: "profiles", title: "Profiles and saves", description: "Keep private saves and import or export .mcprof files.", icon: "profiles" },
   { slug: "troubleshooting", title: "Troubleshooting", description: "Check setup, downloads, deployment, and tool problems.", icon: "book" },
-  { slug: "faq", title: "FAQ", description: "Answers about profiles, compatibility, and local files.", icon: "book" },
+  { slug: "faq", title: "FAQ", description: "Profiles, compatibility, and local files.", icon: "book" },
 ] as const satisfies ReadonlyArray<{ readonly slug: string; readonly title: string; readonly description: string; readonly icon: IconName }>;
 
 export type HelpArticleSlug = (typeof helpTopics)[number]["slug"];

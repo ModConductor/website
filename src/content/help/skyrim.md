@@ -1,4 +1,4 @@
-These components are optional and apply to supported Skyrim profiles. Other games use their own setup and loader requirements.
+SKSE, ENBSeries, and FNIS are optional components for supported Skyrim profiles. Other games use their own setup and loader requirements.
 
 **Skyrim setup** does not install all components automatically. Each component needs an explicit choice before **Apply**.
 

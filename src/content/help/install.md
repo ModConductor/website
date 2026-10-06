@@ -1,4 +1,4 @@
-Mod Conductor 0.2.0 provides Windows and Linux packages for x86-64 computers. These instructions use the released files.
+Mod Conductor 0.2.0 provides Windows and Linux packages for x86-64 computers.
 
 ## Release files
 
@@ -130,9 +130,7 @@ Apply the configuration through your usual declarative workflow. Keep the flake 
 
 ## Other package indexes
 
-Availability was checked on October 5, 2026.
-
-| Route | Public status | Available alternative |
+| Route | Public status on October 5, 2026 | Available alternative |
 | --- | --- | --- |
 | WinGet | No public manifest confirmed | Windows installer or Scoop |
 | Chocolatey | No public version in the feed | Windows installer or Scoop |

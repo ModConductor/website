@@ -35,7 +35,7 @@ A save group can include a companion file. Keep the files together when the prev
 
 **Delete** in the Profile view removes selected private saves. Back up important saves before you confirm deletion.
 
-Steam Cloud is not managed here. These controls do not change Steam Cloud data or guarantee cloud synchronization.
+Mod Conductor does not manage Steam Cloud. These controls do not change Steam Cloud data or guarantee cloud synchronization.
 
 ## Export a profile
 

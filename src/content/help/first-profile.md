@@ -59,7 +59,7 @@ A profile can retain incomplete Linux setup. Profile creation alone does not mea
 2. Select the **Wine executable**.
 3. Select the **Wine prefix** for the game.
 
-Use the prefix that contains the game and its required Windows settings. Do not create or replace a prefix through these instructions.
+Use the existing prefix that contains the game and its required Windows settings.
 
 ## First launch
 
@@ -70,7 +70,9 @@ Use the prefix that contains the game and its required Windows settings. Do not 
 
 Mod Conductor applies the selected profile before it starts the game. A failed check stops the launch and displays the problem.
 
-Test the profile before you add mods. For Skyrim, optional components have a separate [Skyrim setup](../skyrim/).
+Test the profile before you add mods or change an existing mod setup. Keep a separate backup of important saves.
+
+For Skyrim, optional components have a separate [Skyrim setup](../skyrim/).
 
 ## Related topics
 

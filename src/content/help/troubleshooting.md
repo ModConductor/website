@@ -68,7 +68,7 @@ For FNIS, read the last run and select **Run FNIS** after animation changes. Do 
 4. For `.mcprof` import, supply the exact archives that the dialog requests.
 5. Keep a backup before any deletion or restore.
 
-These actions do not manage Steam Cloud. A cloud conflict needs attention in the game or Steam as well.
+Mod Conductor does not manage Steam Cloud. A cloud conflict needs attention in the game or Steam as well.
 
 ## Report a problem
 

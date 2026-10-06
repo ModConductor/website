@@ -21,7 +21,7 @@ Check the source before you open an unsigned download. Do not bypass a warning f
 | Homebrew on Linux | [Project cask](https://github.com/alsi-lawr/homebrew-tap/blob/master/Casks/modconductor.rb) | [Homebrew commands](../help/install/#homebrew-on-linux) |
 | Nix | [Upstream flake](https://github.com/ModConductor/ModConductor/blob/main/flake.nix) | [Run or install declaratively](../help/install/#nix) |
 
-The Homebrew cask is Linux-only. No macOS desktop package is listed here.
+The Homebrew cask is Linux-only. Mod Conductor 0.2.0 does not include a macOS desktop package.
 
 ## Release details
 
@@ -29,7 +29,6 @@ The Homebrew cask is Linux-only. No macOS desktop package is listed here.
 - [SHA-256 checksums](https://github.com/ModConductor/ModConductor/releases/download/v0.2.0/checksums_sha256.txt).
 - [Installation instructions](../help/install/).
 - [First profile](../help/first-profile/).
+- [Package-index status](../help/install/#other-package-indexes).
 
-Availability was checked on October 5, 2026. WinGet, Chocolatey, AUR, and nixpkgs public entries were not confirmed.
-
-Use the routes above instead of an unverified package command. See [the package-index status](../help/install/#other-package-indexes).
+On October 5, 2026, WinGet, Chocolatey, AUR, and nixpkgs had no confirmed public entries.

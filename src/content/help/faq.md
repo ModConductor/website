@@ -6,7 +6,7 @@ See [Installation](../install/) for the available routes and package-index statu
 
 ## Is every Unity or Unreal game supported?
 
-No. The generic routes apply to compatible games and loader workflows. The engine type alone does not prove compatibility.
+No. Support depends on the game, mods, and required loaders. The engine type alone does not prove compatibility.
 
 Check the game, loader, mod version, and installation requirements in [Games](../games/).
 
