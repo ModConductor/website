@@ -14,7 +14,3 @@ const { title, description, currentTopic, headings } = Astro.props;
 const illustration = helpIllustrations.find(({ slug }) => slug === currentTopic);
 ---
 <SiteDocument title={title} description={description} currentSection="help"><HelpLayout currentTopic={currentTopic}><HelpArticle title={title}><ArticleContents headings={headings} />{illustration === undefined ? null : <HelpScreenshot {...illustration} />}<MarkdownContent><slot /></MarkdownContent></HelpArticle></HelpLayout></SiteDocument>
-<script>
-  import { enhanceCodeCopy } from "../scripts/code-copy";
-  enhanceCodeCopy();
-</script>

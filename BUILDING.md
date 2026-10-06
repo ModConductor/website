@@ -23,9 +23,9 @@ The current routes are `/`, `/download/`, `/help/`, and the ten help topics
 listed in `src/components/help/topics.ts`, plus the static `404.html`.
 They use shared React components that render at build time.
 Reading, navigation, and automatic light/dark themes do not need JavaScript.
-Help prose and fenced code use Astro's build-time Markdown renderer. A native
-clipboard enhancement adds copy buttons to fenced code without a browser React
-runtime. Reading and selection still work without JavaScript.
+Help and download prose use Astro's build-time Markdown renderer.
+Astro Expressive Code renders fenced code with syntax highlighting and copy
+buttons. Reading and selection still work without JavaScript.
 
 The published project path is `/website/`. Build it with Astro's supported CLI:
 
